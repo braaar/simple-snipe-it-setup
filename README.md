@@ -1,16 +1,18 @@
 # simple-snipe-it-setup
 This repo contains the basic necessities for getting [snipe-it](https://github.com/snipe/snipe-it) up and running, using docker images from the helpful folks at [linuxserver.io](https://www.linuxserver.io/)
 
-# Configure
+# Prerequisites
 
-This server can run locally for demo/testing purposes as is.
+You must have Docker and docker compose installed. You must also be running one of the supported architectures for the  [snipe-it image](https://github.com/linuxserver/docker-snipe-it#supported-architectures) and the [mariadb image](https://github.com/linuxserver/docker-mariadb#supported-architectures).
 
-To do so, you must have Docker and docker-compose installed.
+See [Linuxserver's guide to docker compose](https://docs.linuxserver.io/general/docker-compose) if you are new to this.
 
-To run SnipeIT, somply run
+# Run server
+
+To run SnipeIT, simply run
 
 ```sh
-docker-compose up
+docker compose up
 ```
 
 Then you can open up `http:localhost:8081` and go through SnipeIT's setup to get things up and running. 
