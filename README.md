@@ -10,14 +10,18 @@ See [Linuxserver's guide to docker compose](https://docs.linuxserver.io/general/
 
 # Run server
 
-To run SnipeIT, simply run
+1. Clone this repository
+
+2. To set up docker images and run them, simply run
 
 ```sh
 docker compose up
 ```
 
-Then you can open up `http://localhost:8081` and go through SnipeIT's setup in the Web UI to get things running. 
+3. Open up `http://localhost:8081` and go through SnipeIT's setup in the Web UI to get things running. 
+
 After that you will be able to use the software, but only if you have access to the local machine. Further setup is required for hosting this in an actual environment.
+
 # Secrets
 
 Secrets can be managed using [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
