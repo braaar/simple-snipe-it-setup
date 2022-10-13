@@ -1,0 +1,53 @@
+version: '2.1'
+
+services:
+  snipe-mariadb:
+    container_name: snipe-mariadb
+    image: lscr.io/linuxserver/mariadb:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - FILE__MYSQL_ROOT_PASSWORD=/run/secrets/db_root_password
+      - TZ=Europe/Helsinki
+      - MYSQL_DATABASE=snipeit #optional
+      - MYSQL_USER=snipeit #optional
+      - FILE__MYSQL_PASSWORD=/run/secrets/db_password #optional
+      # - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
+    secrets:
+       - db_root_password
+       - db_password
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+  snipe-it:
+    image: lscr.io/linuxserver/snipe-it:latest
+    container_name: snipe-it
+    environment:
+      - APP_ENV=production
+      - PUID=1000
+      - PGID=1000
+      - APP_URL=http://localhost:8081
+      - MYSQL_PORT_3306_TCP_ADDR=db-alias
+      - MYSQL_PORT_3306_TCP_PORT=3306
+      - MYSQL_DATABASE=snipeit
+      - MYSQL_USER=snipeit
+      - FILE__MYSQL_PASSWORD=/run/secrets/db_password
+      - TZ=Europe/Helsinki
+    secrets:
+       - db_password
+    ports:
+      - 8081:80
+    restart: unless-stopped
+    depends_on:
+     - snipe-mariadb
+    links:
+     - snipe-mariadb:db-alias
+
+secrets:
+  db_password:
+    file: db_password.txt
+  db_root_password:
+    file: db_root_password.txt
+volumes:
+  snipesql-vol:
