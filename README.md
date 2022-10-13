@@ -1,7 +1,7 @@
 # simple-snipe-it-setup
 This repo contains the basic necessities for getting [snipe-it](https://github.com/snipe/snipe-it) up and running, using docker images from the helpful folks at [linuxserver.io](https://www.linuxserver.io/)
 
-SnipeIT is an asset management system built with PHP and serves a browser-based. It uses MySQL or MariaDB to store data. This setup includes both the snipeIT server and the database server.
+SnipeIT is an asset management system built with PHP and serves a browser-based GUI. It uses MySQL or MariaDB to store data. This setup includes both the snipeIT server and the database server.
 # Prerequisites
 
 You must have Docker and docker compose installed. You must also be running one of the supported architectures for the  [snipe-it image](https://github.com/linuxserver/docker-snipe-it#supported-architectures) and the [mariadb image](https://github.com/linuxserver/docker-mariadb#supported-architectures).
