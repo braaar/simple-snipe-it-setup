@@ -1,5 +1,5 @@
-# inventory-system
-This repo contains the basic necessities for getting [snipe-it](https://github.com/snipe/snipe-it) up and running.
+# simple-snipe-it-setup
+This repo contains the basic necessities for getting [snipe-it](https://github.com/snipe/snipe-it) up and running, using docker images from the helpful folks at [linuxserver.io](https://www.linuxserver.io/)
 
 # Configure
 
